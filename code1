@@ -1,0 +1,180 @@
+from 
+https://www.dukelearntoprogram.com/course1/example/index.php
+
+// write your code here
+var x = 3;
+var y = 3 * x;
+print(y);
+
+function square(x){
+    return x*x;
+}
+ y = square(5);
+ //print(y)
+ print(square(4));
+ 
+ var img = new SimpleImage("lion.jpg");
+ //print(img);
+ print(img.getPixel(0,0));
+ 
+ function HeightnWidth(img){
+     var height = img.getHeight();
+     var width = img.getWidth();
+     print(height);
+     print(width);
+ }
+ 
+ HeightnWidth(img);
+ 
+ print(img.getRed(0,0))
+ 
+ //=================================
+ 
+ function phrase3words(value1, value2, value3){
+     var answer = value1+" "+value2+" "+value3;
+     return answer;
+ }
+var result1 = phrase3words("smile","at","everyone");
+print(result1);
+var result2 = phrase3words("everyone","wave", "back");
+print(result2);
+var result3 = phrase3words("coding","is", "fun");
+print(result3);
+
+function reformatName(first, last) {
+    // код тут
+    return last+", "+first;
+}
+var result = reformatName("Susan", "Rodger");
+print(result);
+result = reformatName("Robert", "Duvall");
+print(result);
+
+function numberPixels(namefile) {
+    var someImg = new SimpleImage(namefile);
+    var height = someImg.getHeight(); 
+    var width = someImg.getWidth();
+    return height*width;
+}
+var result = numberPixels("chapel.png");
+print(result);
+result = numberPixels("dinos.png");
+print(result);
+
+function perimeter(imageName) {
+    var someImg = new SimpleImage(imageName);
+    return 2*(someImg.getHeight()+someImg.getWidth());
+}
+print(perimeter("rodger.png"));
+
+function printPixel(nameImage, xpos, ypos) {
+    var img = new SimpleImage(nameImage);
+    print("red is "+ img.getRed(xpos,ypos));
+    print("green is "+ img.getGreen(xpos,ypos));
+    print("blue is "+img.getBlue(xpos,ypos));
+}
+printPixel("drewgreen.png",10, 10);
+printPixel("drewgreen.png",250, 500);
+
+function sumPixel(nameOfImage, xpos, ypos) {
+    var img = new SimpleImage(nameOfImage);
+    return img.getRed(xpos,ypos)+img.getGreen(xpos,ypos)+img.getBlue(xpos,ypos);
+}
+var answer = sumPixel("drewgreen.png", 250, 500);
+print(answer);
+answer = sumPixel("drewgreen.png",10, 10);
+print(answer);
+
+//====================================
+
+var img = new SimpleImage(200,200);
+print(img);
+
+for(var pixel of img.values()){
+    pixel.setRed(255);
+    pixel.setGreen(255);
+    pixel.setBlue(0);
+}
+print(img);
+for(var pixel of img.values()){
+    pixel.setRed(255);
+    pixel.setGreen(0);
+    pixel.setBlue(255);
+}
+print(img);
+
+//=====================================
+var image = new SimpleImage("chapel.png");
+// код тут
+for(var pixel of image.values()){
+    pixel.setRed(255);
+}
+print(image);
+
+for(var pixel of image.values()){
+    pixel.setRed(0);
+}
+print(image);
+
+var image = new SimpleImage("eastereggs.jpg");
+for(var pixel of image.values()){
+    if(pixel.getRed() > 70){
+        pixel.setRed(70);
+    }
+}
+print(image);
+var image = new SimpleImage("astrachan.jpg");
+for(var pixel of image.values()){
+    if (pixel.getY() >= image.getHeight()-10){
+        pixel.setRed(0);
+        pixel.setBlue(0);
+        pixel.setGreen(0);
+    }
+}
+print(image);
+
+var image = new SimpleImage("chapel.png");
+for(var pixel of image.values()){
+    if(pixel.getX() <= 50 && pixel.getY() <= 50){
+       pixel.setRed(0);
+        pixel.setBlue(0);
+        pixel.setGreen(255); 
+    }
+}
+print(image);
+
+function topRightCorner(cornerWidth, cornerHeight, someImage, red, green, blue) {
+   // код тут
+   var img = new SimpleImage(someImage);
+   for(var pixel of img.values()){
+       if(pixel.getX() >= img.getWidth()-cornerWidth && pixel.getY() <= cornerHeight){
+         pixel.setRed(red);
+        pixel.setBlue(blue);
+        pixel.setGreen(green); 
+       }
+   }
+   return img;
+}
+var picture = new SimpleImage("chapel.png");
+var result = topRightCorner(30, 60, picture, 255, 255, 0);
+print(result);
+var picture2 = new SimpleImage("smalllion.jpg");
+var result2 = topRightCorner(125, 20, picture2, 255, 0, 0);
+print(result2);
+
+function changeRed(width, height, blue, green) {
+    var picture = new SimpleImage(width, height);
+    var red = 0;
+ // код тут
+ for(var pixel of picture.values()){
+     pixel.setRed(pixel.getX()%255)
+     pixel.setBlue(blue);
+     pixel.setGreen(green)
+ }
+ return picture;
+}
+var result = changeRed(256,200, 100, 200);
+print(result);
+
+//==============================================
+ 
